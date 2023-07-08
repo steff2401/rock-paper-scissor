@@ -55,26 +55,6 @@ function game() {
     let scorePlayer = 0;
     let scoreComputer = 0;
 
-    for (let i = 0; i < 5; i ++) {
-
-        let playerChoice = prompt("Rock, paper, or scissors: ");
-        let computerChoice = getComputerChoice();
-
-        let result = playRound(playerChoice, computerChoice);
-
-        if (result == 1) {
-            console.log(`You win this round! ${playerChoice} beats ${computerChoice}`);
-            scorePlayer++;
-
-        } else if (result == -1) {
-            console.log(`You lose this round! ${computerChoice} beats ${playerChoice}`);
-            scoreComputer++;
-
-        } else {
-            console.log("This round is a tie!");
-        }
-    }
-
     if (scorePlayer > scoreComputer) {
         console.log(`You are the ultimate winner! You got ${scorePlayer} points, and the computer got ${scoreComputer} points.`);
 
