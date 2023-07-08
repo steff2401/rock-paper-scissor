@@ -7,62 +7,63 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
 
-    let result; // 1 = player win, 0 = tie, -1 = computer win
     playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase(); // only capitalize first letter
     
     if (playerSelection == "Rock") {
 
-        if (computerSelection == "Rock") {
-            result = 0;
-
-        } else if (computerSelection == "Paper") {
-            result = -1;
+        if (computerSelection == "Paper") {
+            computerScore++;
+            divResults.textContent = `You lose this round! ${computerSelection} beats ${playerSelection}`;
 
         } else if (computerSelection == "Scissors") {
-            result = 1;
+            playerScore++;
+            divResults.textContent = `You win this round! ${playerSelection} beats ${computerSelection}`;
+
+        } else {
+            divResults.textContent = `It's a tie! You both chose ${playerSelection}`;
         }
     
     } else if (playerSelection == "Paper") {
 
         if (computerSelection == "Rock") {
-            result = 1;
-           
-        } else if (computerSelection == "Paper") {
-            result = 0;
-            
-        } else if (computerSelection == "Scissors") {
-            result = -1;
-        }
+            playerScore++;
+            divResults.textContent = `You win this round! ${playerSelection} beats ${computerSelection}.`;
 
+        } else if (computerSelection == "Scissors") {
+            computerScore++;
+            divResults.textContent = `You lose this round! ${computerSelection} beats ${playerSelection}.`;
+
+        } else {
+            divResults.textContent = `It's a tie! You both chose ${playerSelection}.`;
+        }
+        
     } else if (playerSelection == "Scissors") {
 
         if (computerSelection == "Rock") {
-            result = -1;
-           
+            computerScore++;
+            divResults.textContent = `You lose this round! ${computerSelection} beats ${playerSelection}.`;
+
         } else if (computerSelection == "Paper") {
-            result = 1;
-            
-        } else if (computerSelection == "Scissors") {
-            result = 0;
+            playerScore++;
+            divResults.textContent = `You win this round! ${playerSelection} beats ${computerSelection}.`;
+
+        } else {
+            divResults.textContent = `It's a tie! You both chose ${playerSelection}.`;
         }
     }
 
-    return result;
-}
+    playerScoreElement.textContent = "Player score: " + playerScore;
+    computerScoreElement.textContent = "Computer score: " + computerScore;
 
-function game() {
+    if (playerScore == 5) {
+        divResults.textContent = `You are the ultimate winner! You got ${playerScore} points, and the computer got ${computerScore} points.`;
+        playerScore = 0;
+        computerScore = 0;
 
-    let scorePlayer = 0;
-    let scoreComputer = 0;
-
-    if (scorePlayer > scoreComputer) {
-        console.log(`You are the ultimate winner! You got ${scorePlayer} points, and the computer got ${scoreComputer} points.`);
-
-    } else if (scoreComputer > scorePlayer) {
-        console.log(`Sadly, you lost this game. You had ${scorePlayer} points, but the computer got ${scoreComputer} points.`);
-
-    } else if (scorePlayer == scoreComputer) {
-        console.log(`The game is a tie! You both got ${scorePlayer} points.`)
+    } else if (computerScore == 5) {
+        divResults.textContent = `Sadly, you lost this game. You had ${playerScore} points, but the computer got ${computerScore} points.`
+        playerScore = 0;
+        computerScore = 0;
     }
 }
 
@@ -75,5 +76,10 @@ paperButton.addEventListener("click", () => playRound("Paper", getComputerChoice
 const scissorButton = document.querySelector("#scissor");
 scissorButton.addEventListener("click", () => playRound("Scissors", getComputerChoice()));
 
+let playerScore = 0;
+let computerScore = 0;
 
-game();
+const divResults = document.querySelector(".results");
+const playerScoreElement = document.querySelector(".playerScore");
+const computerScoreElement = document.querySelector(".computerScore");
+

@@ -4,10 +4,16 @@ html {
 
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
     background-color: lightgray;
+    gap: 1em;
+}
+
+.title {
+    margin-bottom: 5em;
 }
 
 .buttons {
@@ -21,4 +27,14 @@ button {
     border-color: black;
     background-color: antiquewhite;
     width: 110px;
+    cursor: pointer;
+}
+
+p {
+    margin: 5px;
+    font-size: 20px;
+}
+
+div {
+    font-size: 20px;
 }
