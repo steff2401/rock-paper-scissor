@@ -7,4 +7,17 @@ body {
     justify-content: center;
     align-items: center;
     height: 100%;
+    background-color: lightgray;
+}
+
+.buttons {
+    display: flex;
+    gap: 5em;
+}
+
+button {
+    padding: 20px 30px;
+    font-weight: bold;
+    border-color: black;
+    background-color: antiquewhite;
 }
