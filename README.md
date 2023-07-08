@@ -1,1 +1,1 @@
-This project will be my first using JavaScript. It will first be done without a GUI, before adding this in a later lesson.
+This project will be my first using JavaScript. It was first done without an UI, this was added during a later lesson on TOP.
