@@ -20,4 +20,5 @@ button {
     font-weight: bold;
     border-color: black;
     background-color: antiquewhite;
+    width: 110px;
 }
