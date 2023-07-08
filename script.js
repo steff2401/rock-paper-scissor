@@ -66,4 +66,14 @@ function game() {
     }
 }
 
+const rockButton = document.querySelector("#rock");
+rockButton.addEventListener("click", () => playRound("Rock", getComputerChoice()));
+
+const paperButton = document.querySelector("#paper");
+paperButton.addEventListener("click", () => playRound("Paper", getComputerChoice()));
+
+const scissorButton = document.querySelector("#scissor");
+scissorButton.addEventListener("click", () => playRound("Scissors", getComputerChoice()));
+
+
 game();
